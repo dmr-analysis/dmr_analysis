@@ -1,0 +1,6 @@
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/TSS_Up5000_Down1000_removedShort.bed
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/gene_Up5000_Down1000removedShort.bed
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/TES_Up5000_Down1000removedShort.bed
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/5dist_Up1000000_Up5000removedShort.bed
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/intergenic_uniqueSorted_betweenTSS_TES_genes_minLen10.bed
+../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/data/5dist_Down1000000_Down5000removedShort.bed

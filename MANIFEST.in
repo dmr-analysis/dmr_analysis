@@ -1,0 +1,8 @@
+#include other folder such as binary file if it is necessary
+#include dmr_analysis/bin/Linux/bayesPI_affinity
+#include dmr_analysis/bin/Linux/bayesPI
+#include dmr_analysis/bin/Linux/bayesPI_chemicalPotential
+#include dmr_analysis/bin/Mac/bayesPI_affinity
+#include dmr_analysis/bin/Mac/bayesPI
+#include dmr_analysis/bin/Mac/bayesPI_chemicalPotential
+

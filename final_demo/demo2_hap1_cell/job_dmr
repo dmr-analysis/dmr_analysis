@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --job-name=demo2-dmr
+#SBATCH --account=nn4605k
+#SBATCH --time=3:00:00
+#SBATCH --mem-per-cpu=15G --partition=bigmem 
+# Number of cores:
+#SBATCH --cpus-per-task=10
+
+#set up job enviroment
+#source /etc/profile.d/modules.csh
+#source /cluster/bin/jobsetup
+#module use --append /cluster/etc/modulefiles
+#module load java/jdk1.7.0_80
+#module unload Java/1.8.0_212
+#module purge
+#module --ignore-cache load Java/1.7.0_80
+#module load BEDTools/2.27.1-foss-2018b
+
+#default is testapp which works
+#but we test the program in dmra_tool env now based on omer setting
+#conda activate dmra_tool
+
+which python
+which dmr_analysis
+
+./demo2_hap1_cell.sh 
+

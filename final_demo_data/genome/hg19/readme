@@ -1,0 +1,4 @@
+hg19.refFlat.txt :	https://genome.ucsc.edu/
+gencode.v19.annotation_gene.refFlat :	https://www.gencodegenes.org/
+hg19_all_enhancers_merged_4dmr.bed :	http://www.enhanceratlas.org/
+

@@ -1,0 +1,6 @@
+Here chromSegment of six cells in hg19 are obtained from
+https://genome.ucsc.edu/cgi-bin/hgFileUi?db=hg19&g=wgEncodeAwgSegmentation
+
+For hg38 the data are lift over from hg19 to hg38 by using UCSC lftover
+https://genome.ucsc.edu/cgi-bin/hgLiftOver
+

@@ -1,0 +1,2 @@
+gene	mr_id	rg_Tvalue	rg_Pvalue	enhancer	gene_type	utest_Pvalue	expectPvalue
+Tab2	chr1:mr16	5.427961748893256	0.0006248518011427828	nan	5dist:5000:1000000	0.9960317460317458	0.0
