@@ -45,7 +45,7 @@ dmr_analysis dmr_analysis_block --in_file_folder $in_wgbs_folder \
         --maximum_adjacency_length 1000 --minimum_block_size 5 \
         --P_cutoff 0.05 --minimum_percentage_changes 0.0001 \
         --percentage_cutoff 0.05,0.1,0.2 --low_median_high_cutoff 2 \
-        --number_of_processes 15 \
+        --number_of_processes 10 \
         --is_smoothed_data 2 --is_moderate_ttest 0 --is_export_data 0 \
         --column_splitBy_dotOrUnderscore 0 
 done

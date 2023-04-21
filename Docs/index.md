@@ -26,12 +26,13 @@ dmr_analysis is written in python. It can be installed and accessed from command
 <pre>wget https://github.com/Omer0191/dmr-documentation/archive/refs/heads/main.zip </pre>
 	
 ## Installation:
+## Installation:
 <p>It is highly recommended to create a separate virtual environment for the package to avoid any library conflicts problem. You you create virtual environment using the following commands. We recommend to use install and use miniconda/anaconda (https://docs.conda.io/en/latest/miniconda.html). Tutorial of creating and updating virtual commands can be found at (https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) </p> 
 
 If the minicinda is already installed, then you can proceed with the following step by step installation. We have already provided a quick installation setup file named quick_install.sh for your ease. A simple bash command will do everything autmatically and prepare the package, ready to run. 
 <pre> ./quick_install </pre>
 
-However step by step details are given as under:
+However step by step details are given as under and can be following if quick_install.sh is unsuccessful:
 
 <pre>conda create --name dmr_env python==3.9.16
 conda activate dmr_env</pre>
@@ -50,22 +51,31 @@ Please allow any other installations when prompted
   <li>scipy==1.9.1</li>
   <li>setuptools==65.6.3</li>
   <li>statsmodels==0.13.5</li>
+  <li>bedtools==2.27.0</li>
 </ul>
 
 
 
-These dependencies can be installed one by one. For example:
+These dependencies can be installed one by one using conda manager. For example:
+
+<pre>conda install numpy==1.21.5</pre>
+	
+A requirements.txt file is given with the package. All requiremnts can be automatically installed using one command:
+<pre>conda install --file requirements.txt</pre>
+
+Or can be installed using pip.
 
 <pre>pip install numpy==1.21.5</pre>
 	
-A requirments.txt file is given with the package. All requiremnts can be automatically installed using one command:
+A requirements.txt file is given with the package. All requiremnts can be automatically installed using one command:
 <pre>pip install -r requirements.txt</pre>
 
 You can install the package using following command, go to the dmr_analysis directory (folder containing setup.py and pyproject.toml) and type the following command
 <pre>pip install .</pre>
 
 For more details, follow the readme file in the package.
-		
+
+You also need to install <strong>hmst_seq_analyser</strong> from [here](https://hmst-seq.github.io/hmst/) . Instruction on how to install are also given on the webpage.
 		
 ## Contents of the package:
 		

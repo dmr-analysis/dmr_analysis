@@ -11,6 +11,7 @@ conda create -n dmra_tool python==3.9.16
 #Second step is to activate the created virtual environment.
 echo "Step 2: Activating Virtual Environment: "
 conda activate dmra_tool
+#source activate dmra_tool
 
 #now install pip, this is also required only once
 echo "Step 3: Installing Dependencies (This may take several minutes): "

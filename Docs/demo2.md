@@ -274,26 +274,26 @@ echo dmr_combine2geneAnnot - Done
  
  A log file is maintained to track the progress and steps of pipeline.
  <pre>
-Thu, 30 Mar 2023 12:26:36 INFO     File load ['../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt.gz'] 
-Thu, 30 Mar 2023 12:26:37 INFO     Blocks with distance greater than 1000 
-Thu, 30 Mar 2023 12:26:37 INFO      and minimum data points in block 5
-Thu, 30 Mar 2023 12:26:37 INFO     block size 576 
-Thu, 30 Mar 2023 12:26:37 INFO     Export data in  ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt
-Thu, 30 Mar 2023 12:26:42 INFO     minimum MR length 44 
-Thu, 30 Mar 2023 12:26:42 INFO     maximum MR length 284216 
-Thu, 30 Mar 2023 12:26:42 INFO     Maximum length of adjancey CpG sites in a block 1000 
-Thu, 30 Mar 2023 12:26:42 INFO     Hist plot n [  3  33  47 231  82 142  24  14] 
-Thu, 30 Mar 2023 12:26:42 INFO              bins [    44    100    500   1000   5000  10000  50000 100000 284316] 
-Thu, 30 Mar 2023 12:26:42 INFO     mininum MR data size 5
-Thu, 30 Mar 2023 12:26:42 INFO     maximum MR data size 7535
-Thu, 30 Mar 2023 12:26:50 INFO     Wild type /control sample file name is HAP1_P 
-Thu, 30 Mar 2023 12:26:50 INFO     Wild/control sample 2 , 
-Thu, 30 Mar 2023 12:26:50 INFO     Tumor/KO sample 2 , 
-Thu, 30 Mar 2023 12:26:50 INFO     DMR export path ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots
-Thu, 30 Mar 2023 12:26:50 INFO     DMR export MR data path ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/data
-Thu, 30 Mar 2023 12:26:50 INFO     Do parallel calculation by using 15 processes 
-Thu, 30 Mar 2023 12:32:21 INFO     Export all position results at : ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data.tsv
-Thu, 30 Mar 2023 12:32:21 INFO     Export range position results at : ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data_range.tsv
+Wed, 19 Apr 2023 16:24:17 INFO     File load ['../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt.gz'] 
+Wed, 19 Apr 2023 16:24:18 INFO     Blocks with distance greater than 1000 
+Wed, 19 Apr 2023 16:24:18 INFO      and minimum data points in block 5
+Wed, 19 Apr 2023 16:24:18 INFO     block size 576 
+Wed, 19 Apr 2023 16:24:18 INFO     Export data in  ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt
+Wed, 19 Apr 2023 16:24:18 INFO     minimum MR length 44 
+Wed, 19 Apr 2023 16:24:18 INFO     maximum MR length 284216 
+Wed, 19 Apr 2023 16:24:18 INFO     Maximum length of adjancey CpG sites in a block 1000 
+Wed, 19 Apr 2023 16:24:18 INFO     Hist plot n [  3  33  47 231  82 142  24  14] 
+Wed, 19 Apr 2023 16:24:18 INFO              bins [    44    100    500   1000   5000  10000  50000 100000 284316] 
+Wed, 19 Apr 2023 16:24:18 INFO     mininum MR data size 5
+Wed, 19 Apr 2023 16:24:18 INFO     maximum MR data size 7535
+Wed, 19 Apr 2023 16:24:18 INFO     Wild type /control sample file name is HAP1_P 
+Wed, 19 Apr 2023 16:24:18 INFO     Wild/control sample 2 , 
+Wed, 19 Apr 2023 16:24:18 INFO     Tumor/KO sample 2 , 
+Wed, 19 Apr 2023 16:24:18 INFO     DMR export path ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots
+Wed, 19 Apr 2023 16:24:18 INFO     DMR export MR data path ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/data
+Wed, 19 Apr 2023 16:24:18 INFO     Do parallel calculation by using 15 processes 
+Wed, 19 Apr 2023 16:27:43 INFO     Export all position results at : ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data.tsv
+Wed, 19 Apr 2023 16:27:43 INFO     Export range position results at : ../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data_range.tsv
 </pre>
 The output file contain information about DMR and are ranked. Each row shows one region with the pvalue of smoothed and interpolated data, percentages and many other values conculated in the pipeline. 
 Here is how an output file look like :
