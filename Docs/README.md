@@ -57,3 +57,9 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
+
+
+          
+Having trouble with package? Contact us @ junbai.wang@medisin.uio.no and we will be glad to help you.
+You can read the complete documentation here: [https://omer0191.github.io/dmr-documentation/](https://omer0191.github.io/dmr-documentation/)
+
