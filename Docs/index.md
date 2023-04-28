@@ -16,7 +16,7 @@ dmr_analysis is a software tool for differentially Methylated Regions analysis t
 
 
 ## Modules:
-[Home](index.md) | [DMR Block Analysis](dmr_analysis_block.md) | [Combine MultiChr4Rank](dmr_combine_multChrs4rank.md) | [Selected4plot](dmr_selected4plot.md) | [map2genome](dmr_map2genome.md) | [map2chromSegment](dmr_map2chromSegment.md) | [cal2genome_percent](dmr_cal2genome_percent.md) | [cal2chromSegment_percent](dmr_cal2chromSegment_percent.md) | [percent2plot](dmr_percent2plot.md) | [combine2geneAnnot](dmr_combine2geneAnnot.md) | [exportData](dmr_exportData.md)   
+[Home](index.md) | [DMR Block Analysis](dmr_analysis_block.md) | [Combine MultiChr4Rank](dmr_combine_multChrs4rank.md) | [Selected4plot](dmr_selected4plot.md) | [map2genome](dmr_map2genome.md) | [map2chromSegment](dmr_map2chromSegment.md) | [cal2genome_percent](dmr_cal2genome_percent.md) | [cal2chromSegment_percent](dmr_cal2chromSegment_percent.md) | [percent2plot](dmr_percent2plot.md) | [combine2geneAnnot](dmr_combine2geneAnnot.md) | [exportData](dmr_exportData.md)  | [gene annotation](dmr_gene_annotation.md) 
 
 
 ## Download:
@@ -75,7 +75,6 @@ You can install the package using following command, go to the dmr_analysis dire
 
 For more details, follow the readme file in the package.
 
-You also need to install <strong>hmst_seq_analyser</strong> from [here](https://hmst-seq.github.io/hmst/) . Instruction on how to install are also given on the webpage.
 		
 ## Contents of the package:
 		
@@ -109,6 +108,7 @@ You also need to install <strong>hmst_seq_analyser</strong> from [here](https://
 	<li><code>dmr_percent2plot</code> : Plot percentage of DMRs in predefined genomic or chromatin segment regions.</li>
 	<li><code>dmr_combine2geneAnnot</code> : Combine annotations from both predefined genomic regions and chromatin segments (This function is slow and requests both genome and chromatin segment results available).</li>
 	<li><code>dmr_exportData</code>:  Plot and export data for DMRs/MRs located in specific regions (e.g., DMRs/MRs intersected with mutation block or enhancer regions).</li>
+	<li><code>dmr_gene_annotation</code>:  Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference.</li>
 	
 </ul>
 	

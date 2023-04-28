@@ -104,16 +104,20 @@ echo "dmr_ExportData -- Done"
 #-- Please note this file name needs to be input manually because it is generated after running "dmr_combine_multChrs4rank" and expored at folder "out_result_folder"
 #mr_IN_FILE='2_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.78_minLogReg_proba_0.7'
 
-#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
-#https://hmst-seq.github.io/hmst/
-#Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions.
+##a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer (Not used anymore, Omer 27, April, 23)
+
+
+#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)
+
+#Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions
 #For example, to add file path for enhancer reginos in "list_region_files.txt" if user want to include enhancer in the analysis
-hmst_seq_analyzer gene_annotation -F ${out_result_folder} -i no -l 10 \
+
+dmr_analysis dmr_gene_annotation -F ${out_result_folder} -i no -l 10 \
         -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu yes -n no \
         -r ${in_genome_folder}/${in_genome_refFlat} \
         -g ${in_genome_folder}/${in_genome_size}
 echo export genome annotation files at: ${out_result_folder}/data
-echo gene_annotation-DON
+echo gene_annotation-Done
 
 #b) map DMR to predefined genomic regions such as TSS, TES, gene et al.
 dmr_analysis dmr_map2genome --in_sortedDMR_file ${out_result_folder}/${mr_IN_FILE}.bed \

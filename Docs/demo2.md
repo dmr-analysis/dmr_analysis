@@ -59,7 +59,7 @@ module load BEDTools/2.27.1-foss-2018b
 in_wgbs_folder='../../final_demo_data/hap1_cell/in_data/WGBS-data/' 
 
 #path of input reference genome folder 
-#-- where genome size file and refFlat files will be used in making predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
+#-- where genome size file and refFlat files will be used in making predefined genomic regions (e.g., TSS, TES, gene et al.) by using dmr_gene_annotation
 in_genome_folder='../../final_demo_data/genome/hg38/'
 in_genome_refFlat='hg38.refFlat.txt'
 in_genome_size='hg38.chrom.sizes.clear.sorted'
@@ -191,10 +191,10 @@ echo export selected MR - Done
 ### Step 3: DMR mapping:
 
 <p>
-In the third step, it maps the predicted DMRs and MRs to predefined genomic regions using hmst-seq-analyzer. This demo also includes several parameters that can be manually adjusted , such as the path of the input and output data folders, the name of output folders and files, and the selected DMRs for plotting. 
+In the third step, it maps the predicted DMRs and MRs to predefined genomic regions using dmr_analysis. This demo also includes several parameters that can be manually adjusted , such as the path of the input and output data folders, the name of output folders and files, and the selected DMRs for plotting. 
  
  <ul>
- <li> In part a, genomic regions are generated using hmst_seq_analyzer module gene_annotation. </li>
+ <li> In part a, genomic regions are generated using dmr_analysis module dmr_gene_annotation. </li>
  <li> In the part b, DMRs are mapped into genomic regions defined in part a.</li>
   <li> Part c performs percentage calculations of DMR in annotated genomic regions.</li>
   <li> These percentages from part c are plotted in the last step d..</li>
@@ -207,14 +207,15 @@ In the third step, it maps the predicted DMRs and MRs to predefined genomic regi
 #mr_IN_FILE='3_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.97_minLogReg_proba_0.7'
 
 
-#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
-#https://hmst-seq.github.io/hmst/
+#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)
+
 #Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions
 #For example, to add file path for enhancer reginos in "list_region_files.txt" if user want to include enhancer in the analysis
-hmst_seq_analyzer gene_annotation -F ${out_result_folder} -i no -l 10 \
+
+dmr_analysis dmr_gene_annotation -F ${out_result_folder} -i no -l 10 \
         -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu yes -n no \
         -r ${in_genome_folder}/${in_genome_refFlat} \
-        -g ${in_genome_folder}/${in_genome_size} 
+        -g ${in_genome_folder}/${in_genome_size}
 echo export genome annotation files at: ${out_result_folder}/data
 echo gene_annotation-Done
 

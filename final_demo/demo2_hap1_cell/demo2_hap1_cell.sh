@@ -37,7 +37,7 @@ mr_IN_FILE='3_chroms_all_mr_data_range_dmrRanking'
 
 #a) do dmr_analysis in blocks
 for in_chrom in chr3 chr9 chr13
-do 
+do
 dmr_analysis dmr_analysis_block --in_file_folder $in_wgbs_folder \
         --chromosome $in_chrom --group_key $in_chrom \
         --out_file_folder $out_result_folder \
@@ -48,7 +48,7 @@ dmr_analysis dmr_analysis_block --in_file_folder $in_wgbs_folder \
         --percentage_cutoff 0.05,0.1,0.2 --low_median_high_cutoff 2 \
         --number_of_processes 15 \
         --is_smoothed_data 2 --is_moderate_ttest 0 --is_export_data 1 \
-        --column_splitBy_dotOrUnderscore 0 
+        --column_splitBy_dotOrUnderscore 0
 done
 echo "dmr_analysis_block - Done"
 
@@ -59,7 +59,7 @@ dmr_analysis dmr_combine_multChrs4rank \
 	--in_is_smoothed_data 2 \
 	--in_LogReg_proba 0.7 \
 	--in_low_median_high_cutoff high \
-	--in_file_ending_string _range.tsv 
+	--in_file_ending_string _range.tsv
 echo dmr_combine_multChrs4rank - Done
 
 
@@ -97,21 +97,27 @@ echo export selected MR - Done
 
 
 #STEP 3. mapp predicted DMR/MRs to predefined genomic regions (e.g., TSS, TES, 5dist etl al) or predicted chromatin segments for further analysis
-#below is a result file generated from dmr_combine_multChrs4rank, where DMR/MRs from multiple chromosomes are combined and ranked them by logisitic regression model 
+#below is a result file generated from dmr_combine_multChrs4rank, where DMR/MRs from multiple chromosomes are combined and ranked them by logisitic regression model
 #-- Please note this file name needs to be input manually because it is generated after running "dmr_combine_multChrs4rank" and expored at "out_result_folder"
 #mr_IN_FILE='3_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.97_minLogReg_proba_0.7'
 
 
-#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
-#https://hmst-seq.github.io/hmst/
+##a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer (Not used anymore, Omer 27, April 23)
+
+
+
+#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)
+
 #Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions
 #For example, to add file path for enhancer reginos in "list_region_files.txt" if user want to include enhancer in the analysis
-hmst_seq_analyzer gene_annotation -F ${out_result_folder} -i no -l 10 \
+
+dmr_analysis dmr_gene_annotation -F ${out_result_folder} -i no -l 10 \
         -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu yes -n no \
         -r ${in_genome_folder}/${in_genome_refFlat} \
-        -g ${in_genome_folder}/${in_genome_size} 
+        -g ${in_genome_folder}/${in_genome_size}
 echo export genome annotation files at: ${out_result_folder}/data
 echo gene_annotation-Done
+
 
 #b) map DMR to predefined genomic regions such as TSS, TES, gene et al.
 dmr_analysis dmr_map2genome --in_sortedDMR_file ${out_result_folder}/${mr_IN_FILE}.bed \
@@ -119,12 +125,12 @@ dmr_analysis dmr_map2genome --in_sortedDMR_file ${out_result_folder}/${mr_IN_FIL
         --in_outFile_folder ${out_result_folder}/${out_folder4genome_map} \
         --in_refFlat_file ${out_result_folder}/data/${in_sorted_refFlat}
 echo dmr_map2genome - Done
- 
 
+#
 #c) calculate percentage of DMR in annotated genomic regions
 dmr_analysis dmr_cal2genome_percent --in_outFile_folder ${out_result_folder}/${out_folder4genome_map} \
         --in_outFile_name ${out_file4genome_map} --in_LogReg_proba ${logProb_cutoff}  \
-        --in_fileName_string $mr_IN_FILE  
+        --in_fileName_string $mr_IN_FILE
 echo dmr_cal2genome_percent - Done
 
 #d) plot percentage of DMR in annotated genomic regions
@@ -134,11 +140,11 @@ echo dmr_percent2plot - Done
 
 #e) map DMR to predicated chromatin states such as predicated chromatin segment from 6 human cell lines.
 dmr_analysis dmr_map2chromSegment --in_chromatinSegment_file_folder ${in_chromSegment_folder} \
-        --in_fileName_string 'combined_six*bed.gz' --in_combined_chromatinSegment_exist 1 \
+        --in_fileName_string 'combined_six*bed*' --in_combined_chromatinSegment_exist 1 \
         --in_outFile_folder ${out_result_folder}/${out_folder4chromSegment_map} \
         --in_DMR_file ${out_result_folder}/${mr_IN_FILE}.bed
 echo dmr_map2chromSegment - Done
-  
+
 #f) calculate percentage of DMRs in predicted chromatin states.
 dmr_analysis dmr_cal2chromSegment_percent --in_outFile_folder ${out_result_folder}/${out_folder4chromSegment_map} \
         --in_outFile_name ${out_file4chromSeg_map}  \
@@ -150,7 +156,7 @@ dmr_analysis dmr_percent2plot --in_countFile_folder ${out_result_folder}/${out_f
         --in_countFile_name ${out_file4chromSeg_map}
 echo dmr_percent2plot - Done
 
-#h) Combine annotated results from both genome and chromatin segment 
+#h) Combine annotated results from both genome and chromatin segment
 #please note both genome and chromatin segment have to be available before running this function.
 #This function is slow and not recommend to use for large data but use dds_analysis instead.
 dmr_analysis dmr_combine2geneAnnot --number_of_processes 10 --miniLogReg_proba_cutoff 0.7 \

@@ -19,6 +19,7 @@ Tasks available for using:
     dmr_percent2plot 	Plot percentage of DMRs in predefined genomic or chromatin segment regions
     dmr_combine2geneAnnot 	Combine annotations from both predefined genomic regions and chromatin segments (This function is slow and requests both genome and chromatin segment results available)
     dmr_exportData	Plot and export data for DMRs/MRs located in specific regions (e.g., DMRs/MRs intersected with mutation block or enhancer regions)
+    dmr_gene_annotation	Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference
 ''')
 
 #dmr_filtering      Filtering DMR by using low, median , or high minimum percentage change of methylation level
@@ -97,6 +98,13 @@ Tasks available for using:
        parser= my_parser(argparse.ArgumentParser(prog='dmr_analysis dmr_exportData',
                description='Plot figure or export data for DMRs/MRs in specific regions such as DMRs overlapping to mutation blocks or enhancer regions etc.'))
        run(parser.parse_args(sys.argv[2:]))
+
+   def dmr_gene_annotation(self):
+       from .script.dmr_gene_annotation import my_parser, run
+       parser= my_parser(argparse.ArgumentParser(prog='dmr_analysis dmr_gene_annotation',
+               description='This module Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference'))
+       run(parser.parse_args(sys.argv[2:]))
+
 
 def main():
    Main()

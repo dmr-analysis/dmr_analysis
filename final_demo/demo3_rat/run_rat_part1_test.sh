@@ -45,7 +45,7 @@ dmr_analysis dmr_analysis_block --in_file_folder $in_wgbs_folder \
         --maximum_adjacency_length 1000 --minimum_block_size 5 \
         --P_cutoff 0.05 --minimum_percentage_changes 0.0001 \
         --percentage_cutoff 0.05,0.1,0.2 --low_median_high_cutoff 2 \
-        --number_of_processes 10 \
+        --number_of_processes 15 \
         --is_smoothed_data 2 --is_moderate_ttest 0 --is_export_data 0 \
         --column_splitBy_dotOrUnderscore 0 
 done
@@ -96,15 +96,17 @@ echo export selected MR - Done
 #mr_IN_FILE='5_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.73_minLogReg_proba_0.6'
 #mr_IN_FILE='*_chroms_all_mr_data_range_dmrRanking'
 
-#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
-#https://hmst-seq.github.io/hmst/
+##a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer (Not used anymore, Omer 27, April, 23)
+
+#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)
+
 #Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions
 #For example, to add file path for enhancer reginos in "list_region_files.txt" if user want to include enhancer in the analysis
-hmst_seq_analyzer gene_annotation -F ${out_result_folder} -i no -l 10 \
-        -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu rat -n no \
+
+dmr_analysis dmr_gene_annotation -F ${out_result_folder} -i no -l 10 \
+        -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu yes -n no \
         -r ${in_genome_folder}/${in_genome_refFlat} \
         -g ${in_genome_folder}/${in_genome_size}
-
 echo export genome annotation files at: ${out_result_folder}/data
 echo gene_annotation-Done
   

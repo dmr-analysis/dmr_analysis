@@ -57,7 +57,7 @@ module load BEDTools/2.27.1-foss-2018b
 in_wgbs_folder='../../final_demo_data/rat_data/in_data/WGBS-data/' 
 
 #path of input reference genome folder 
-#-- where genome size file and refFlat files will be used in making predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
+#-- where genome size file and refFlat files will be used in making predefined genomic regions (e.g., TSS, TES, gene et al.) by using dmr_analysis module dmr_gene_annotation
 in_genome_folder='../../final_demo_data/genome/rn6/'
 in_genome_refFlat='rn6.refFlat.txt'
 in_genome_size='rn6.chrom.sizes.clear.sorted'
@@ -99,12 +99,12 @@ chr1    1608956 1608956 0.33    9       +
 
 ### Step 1: DMR Prediction:
 <p>
-In the first step, the DMRs are predicted and then predicted DMRs and MRs are then exported to the output data folder, and the results from all chromosomes are combined and ranked.  
-<ul>
- <li> In part a, dmr_analysis_block module is used to predict DMRs in chr1, chr2, chr3, chrX and chrY. </li>
- <li>They are combined using scripts dmr_combine_multChrs4rank to combine and rank the DMRs across multiple chromosomes. </li>
- </ul>
-</p>
+In the first step, the DMRs are predicted and then predicted DMRs and MRs are then exported to the output data folder, and the results from all chromosomes are combined and ranked.  </p>
+ <ul>
+  <li> In part a, dmr_analysis_block module is used to predict DMRs in chr1, chr2, chr3, chrX and chrY. </li>
+  <li>They are combined using scripts dmr_combine_multChrs4rank to combine and rank the DMRs across multiple chromosomes. </li>
+  </ul>
+
  
 <pre> 
   #STEP 1. run dmr_analysis to predict DMRs
@@ -138,12 +138,12 @@ In the first step, the DMRs are predicted and then predicted DMRs and MRs are th
 ### Step 2: DMR Plot and Export:
 
 <p>
-  In the second step, the script plots using dmr_selected4plot and exports data for selected DMRs using the module dmr_exportData. The code and parameter setting can be seen as follows:
+  In the second step, the script plots using dmr_selected4plot and exports data for selected DMRs using the module dmr_exportData. The code and parameter setting can be seen as follows:</p>
  <ul>
  <li> In part a, dmr_selected4plot module is used to select DMRs for plotting. </li>
  <li> In part b, output data and results are then exported using dmr_exportData module. </li>
  </ul>
-</p>
+
 
  <pre> 
  #STEP 2. Plot and export data for selected DMRs
@@ -179,15 +179,16 @@ echo export selected MR - Done
 ### Step 3: DMR Mapping:
 
 <p>
-In the third step, it maps the predicted DMRs and MRs to predefined genomic regions using hmst-seq-analyzer. This demo also includes several parameters that can be manually adjusted , such as the path of the input and output data folders, the name of output folders and files, and the selected DMRs for plotting. 
+In the third step, it maps the predicted DMRs and MRs to predefined genomic regions using . This demo also includes several parameters that can be manually adjusted , such as the path of the input and output data folders, the name of output folders and files, and the selected DMRs for plotting. </p>
  
  <ul>
- <li> In part a, genomic regions are generated using hmst_seq_analyzer module gene_annotation. </li>
+ <li> In part a, genomic regions are generated using dmr_analysis module dmr_gene_annotation. </li>
  <li> In the part b, DMRs are mapped into genomic regions defined in part a.</li>
   <li> Part c performs percentage calculations of DMR in annotated genomic regions.</li>
   <li> These percentages from part c are plotted in the last step d..</li>
  </ul>     
-</p>
+
+
 <pre> 
 #STEP 3. mapp predicted DMR/MRs to predefined genomic regions (e.g., TSS, TES, 5dist etl al) or predicted chromatin segments for further analysis
 #below is a result file generated from dmr_combine_multChrs4rank, where DMR/MRs from multiple chromosomes are combined and ranked them by logisitic regression model 
@@ -195,15 +196,15 @@ In the third step, it maps the predicted DMRs and MRs to predefined genomic regi
 #mr_IN_FILE='5_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.73_minLogReg_proba_0.6'
 #mr_IN_FILE='*_chroms_all_mr_data_range_dmrRanking'
 
-#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by using hmst-seq-analyzer
-#https://hmst-seq.github.io/hmst/
+#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)
+
 #Here, to edit exported "list_region_files.txt" for adding/removing predefined genomic regions
 #For example, to add file path for enhancer reginos in "list_region_files.txt" if user want to include enhancer in the analysis
-hmst_seq_analyzer gene_annotation -F ${out_result_folder} -i no -l 10 \
-        -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu rat -n no \
+
+dmr_analysis dmr_gene_annotation -F ${out_result_folder} -i no -l 10 \
+        -xL 50000000 -X 5000 -Y 1000 -M 5000 -N 1000000 -hu yes -n no \
         -r ${in_genome_folder}/${in_genome_refFlat} \
         -g ${in_genome_folder}/${in_genome_size}
-
 echo export genome annotation files at: ${out_result_folder}/data
 echo gene_annotation-Done
 
