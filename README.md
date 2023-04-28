@@ -48,12 +48,14 @@ usage:  dmr_analysis task args
     - Plot and export data for DMRs/MRs located in specific regions (e.g., DMRs/MRs intersected with mutation block or enhancer regions)
   </li>
 
+
   <li><code>dmr_gene_annotation</code>:  
     - Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference. This module is reimplemented here from hmst-seq-analyzer tool https://hmst-seq.github.io/hmst/ 
   </li>
-
 </ul>
 
+
+DMR-Analysis: A Differentially Methylated Region Analysis Tool
 
 positional arguments:
   task        Pipeline task to run
@@ -61,5 +63,8 @@ positional arguments:
 optional arguments:
   -h, --help  show this help message and exit
 
+
+          
 Having trouble with package? Contact us @ junbai.wang@medisin.uio.no and we will be glad to help you.
-You can go to look inside the code here: [https://github.com/dmr-analysis/dmr_analysis](https://github.com/dmr-analysis/dmr_analysis)
+You can read the complete documentation here: [https://omer0191.github.io/dmr-documentation/](https://omer0191.github.io/dmr-documentation/)
+
