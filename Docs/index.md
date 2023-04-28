@@ -108,7 +108,7 @@ For more details, follow the readme file in the package.
 	<li><code>dmr_percent2plot</code> : Plot percentage of DMRs in predefined genomic or chromatin segment regions.</li>
 	<li><code>dmr_combine2geneAnnot</code> : Combine annotations from both predefined genomic regions and chromatin segments (This function is slow and requests both genome and chromatin segment results available).</li>
 	<li><code>dmr_exportData</code>:  Plot and export data for DMRs/MRs located in specific regions (e.g., DMRs/MRs intersected with mutation block or enhancer regions).</li>
-	<li><code>dmr_gene_annotation</code>:  Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference.</li>
+	<li><code>dmr_gene_annotation</code>:  Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference. This module is reimplemented here from hmst-seq-analyzer tool https://hmst-seq.github.io/hmst/ </li>
 	
 </ul>
 	

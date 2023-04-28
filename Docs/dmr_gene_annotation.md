@@ -11,7 +11,7 @@ dmr_analysis is a software tool for differentially Methylated Regions analysis t
 
 ## dmr_gene_annotation	
 
-Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference
+Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist and intergenic) from the reference. This module is reimplemented here from hmst-seq-analyzer tool https://hmst-seq.github.io/hmst/
 
 <p><strong>Required:</strong></p>
 <ul>
