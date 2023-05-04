@@ -70,7 +70,7 @@ def prepare_result_folder(res_folder):
        print("The result folder, ", res_folder, " , exits ")
     else:
        print("Create result folder, ", res_folder)
-       os.mkdir(res_folder)
+       os.makedirs(res_folder)
 
     #if os.path.exists(res_folder): 
     #    print("The result folder,", os.path.abspath(res_folder), ", exists and will be erased")
