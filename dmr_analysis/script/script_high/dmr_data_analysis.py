@@ -411,7 +411,7 @@ def export_selected_dmr_data(tmp_chr,tmp_id,block_methylation_columns2, gcb_col_
     #here is a double check  
     out_folder_data=os.path.join(out_folder, tmp_chr,'data')
     if not os.path.exists(out_folder_data):
-       os.mkdir(out_folder_data)
+       os.makedirs(out_folder_data)
        print('Create: ' , out_folder_data)
     out_dmr_file=os.path.join(out_folder_data,out_dmr_file)
     out_dmr_df.to_csv(out_dmr_file,index=True,sep='\t',float_format='%g',compression='gzip')

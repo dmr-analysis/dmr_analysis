@@ -72,11 +72,11 @@ def show_selected_dmr(logger_n,in_chrm, tmp_chr, tmp_pos, in_data_df, \
     logger_n.info('Start to plot ')
     out_fig_name=in_chrm+'_DMR_'+ tmp_id + '.' + in_figure_format
     if not os.path.exists(out_folder):
-       os.mkdir(out_folder)
+       os.makedirs(out_folder)
        print('Create, ', out_folder)
     out_fig_folder=os.path.join(out_folder, tmp_chr)
     if not os.path.exists(out_fig_folder):
-       os.mkdir(out_fig_folder)
+       os.makedirs(out_fig_folder)
        print('Create, ', out_fig_folder)
     out_fig_name=os.path.join(out_fig_folder,out_fig_name)
     logger_n.info(out_fig_name)

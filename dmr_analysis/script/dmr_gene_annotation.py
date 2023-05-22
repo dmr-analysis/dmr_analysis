@@ -4,6 +4,7 @@ import pandas as pd
 import sys
 # from .scripts.preprocess_reference import main as pr_main
 # from .scripts.create_bed import main as cb_main
+from dmr_analysis.script.script_high.dmr_utility import prepare_result_folder
 
 def make_names(chr, start, end, rna_name, x, y, reg, gene_name, strand,
                orig_start, orig_end):
@@ -501,6 +502,7 @@ def make_BED_of_ref(df):
     df_BED = pd.DataFrame(df[['chr', 'start_pos', 'end_pos', 'gene_rna_name',
                               'dot', 'strand']])
     return df_BED
+
 def get_num_chr(human, string):
     """Returns the numbers of the respective chromosome names
 
@@ -620,6 +622,9 @@ def pr_main(reference, human, numerical_chr_name, remove_mir, folder_out):
     # Makes sure the columns are in this exact order
     new_ref = new_ref[['rna_name', 'chr', 'strand', 'start_pos', 'end_pos', 'gene_name']]
     ref_BED_df = ref_BED_df[['chr', 'start_pos', 'end_pos', 'gene_rna_name', 'dot', 'strand']]
+
+    #jbw may
+    prepare_result_folder(folder_out)
 
     # Keeps header
     new_ref.to_csv(folder_out+'/'+outfilename+'_clean_sorted.txt', sep='\t', index=False)
