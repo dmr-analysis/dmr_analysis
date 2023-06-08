@@ -15,11 +15,13 @@ Run Demo1:
   Demo1 can be run by executing the bash script given with the pacakge. In this demo DNA methylation Regions are found and ranked.
 
 .. code-block:: bash
+
     sbatch job_dmr
 
 While `job_dmr` is run in a cluster computer (SAGA) provided by Norwegian Research Infrastructure Services(NRIS). Remember to change this according to your machine. `job_dmr` looks like this
 
 .. code-block:: bash
+
     #!/bin/bash
     #SBATCH --job-name=demo1-dmr
     #SBATCH --time=15:00:00
@@ -70,7 +72,7 @@ Here this job calls a shell script file `demo1_dmr_analysis_fl_12samples.sh`. Th
 
     #path of input chromatin segment folder
     #such as combined chromatin segment from six human cell lines generated from Encode project https://genome.ucsc.edu/cgi-bin/hgFileUi?db=hg19&g=wgEncodeAwgSegmentation
-    #-- where each predicted chromatin type (e.g., TSS, Enhancers) is listed in a bed formated file and the file name indicate the predicted chromatin type.
+    #-- where each predicted chromatin type (e.g., TSS, Enhancers) is listed in a bed formatted file and the file name indicate the predicted chromatin type.
     in_chromSegment_folder='../../final_demo_data/chromSegment/hg19/'
 
     #output data folder
@@ -90,7 +92,9 @@ Here this job calls a shell script file `demo1_dmr_analysis_fl_12samples.sh`. Th
 **In folder path:** final_demo_data/fl_12samples/in_data/WGBS-data/
 WGBS methylation profiles (input) in bed format looks like the following.
 Path: `final_demo_data/fl_12samples/in_data/WGBS-data/chr18/`
+
 .. code-block:: bash
+
     chr18   57000331        57000331        0.88    33      1
     chr18   57000413        57000413        0.9     48      1
     chr18   57000458        57000458        0.75    51      1
@@ -110,6 +114,7 @@ In the first step, the DMRs are predicted and then predicted DMRs and MRs are th
 
 Step 1:
 ______
+
 .. code-block:: bash
 
     #STEP 1. run dmr_analysis to predict DMRs
@@ -193,6 +198,7 @@ In the third step, it maps the predicted DMRs and MRs to predefined genomic regi
 
 
 .. code-block:: bash
+
     #STEP 3. mapp predicted DMR/MRs to predefined genomic regions (e.g., TSS, TES, 5dist etl al) or predicted chromatin segments for further analysis
     #below is a result file generated from dmr_combine_multChrs4rank, where DMR/MRs from multiple chromosomes are combined and ranked them by logisitic regression model
     #-- Please note this file name needs to be input manually because it is generated after running "dmr_combine_multChrs4rank" and expored at folder "out_result_folder"
@@ -266,7 +272,9 @@ Output produced can be found under the folder:
  final_demo_data/rat_data/out_data/DMR_CpG_context/
 
  A log file is maintained to track the progress and steps of pipeline.
+
 .. code-block:: bash
+
     Thu, 30 Mar 2023 12:26:36 INFO     File load ['../../final_demo_data/fl_12samples/out_data/DMR_CpG_context/chrY/chrY_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt.gz']
     Thu, 30 Mar 2023 12:26:39 INFO     Blocks with distance greater than 1000
     Thu, 30 Mar 2023 12:26:39 INFO      and minimum data points in block 5
@@ -291,7 +299,9 @@ Output produced can be found under the folder:
 The output file contain information about DMR and are ranked. Each row shows one region with the pvalue of smoothed and interpolated data, percentages and many other values conculated in the pipeline.
 Here is how an output file look like :
 `final_demo_data/fl_12samples/out_data/DMR_CpG_context/chrY/plots/chrY_all_mr_data_range.tsv`
+
 .. code-block:: bash
+
     mr_id   T-test_pval_smoothed_data       T-test_pval_interpolated_data   percent_data_passed_ttest       gcb_vs_grpsDist_pval    tumor_vs_grpsDist_pval  gcb_vs_grpsDist_tval    tumor_vs_grpsDist_tval  cluster_accuracy        low_negative_tumor_vs_gcb_percent median_negative_tumor_vs_gcb_percent    high_negative_tumor_vs_gcb_percent      low_positive_tumor_vs_gcb_percent       median_positive_tumor_vs_gcb_percent  high_positive_tumor_vs_gcb_percent      is_DMR  position  DMR_type        chroms  log10_gcb_vs_grpsDist_pval      log10_tumor_vs_grpsDist_pval    log10_gcb_vs_grpsDist_pval_minMaxNorm   log10_tumor_vs_grpsDist_pval_minMaxNorm dmr_weight_score        percent_data_passed_ttest_gt_pvallogReg_score     logReg_predicted_dmr
     mr1130  0.000405656     0.00432085      0.0     0.761592        0.297122        0.310908        -1.05249        0.5     0.166667        0.0     0.0   0.0     0.0     0.0     U       chr18,63982541-63982589,5       mix     chr18   0.11827755858580184       0.5270650160086492      0.01702962203404642     0.07612316109961371     0.07490444530138562     0.0     -6.823775494058065      0.0010864253038653845
     mr500   5.20997e-10     1.68717e-06     0.0     0.817423        0.390883        -0.237085       -0.864533       0.5     0.209677        0.0     0.0   0.0     0.0     0.0     U       chr18,59912234-59912855,17      mix     chr18   0.08755308328330652       0.4079530847290674      0.012591791521204805    0.05891959092626307     0.07144182119159485     0.0     -6.8234527264599        0.001086775642195305
@@ -304,6 +314,7 @@ Here is how an output file look like :
 Top two rows of all results file looks like following. It gives information about methylated region, its relative chromosome number, logistic regression probablity and gene information.
 
 .. code-block:: bash
+
     mr_chrs mr_start_pos    mr_end_pos      mr_info mr_logReg_proba genome_info     chromSegment_info
     chr18   57022124        57027729        chr18:mr5:hypo:D        0.999871        chr18:57025497:57031497:NM_005570||TSS:5000:1000||LMAN1:-:56995055:57026497~chr18:56996055:57025497:NM_005570||gene:5000:1000||LMAN1:-:56995055:5702649~E~R~TSS~PF~T
     chr18   57028952        57030829        chr18:mr6:hypo:D        0.999902        chr18:57025497:57031497:NM_005570||TSS:5000:1000||LMAN1:-:56995055:57026497~chr18:56343696:57338696:NM_006785||5distD:5000:1000000||MALT1:+:56338696:56221709~chr18:56486111:57481111:NR_146904||5distD:5000:1000000||LINC01926:+:56481111:56501596~chr18:56535155:57530155:NM_018181||5distD:5000:1000000||ZNF332:+:56530155:56653712~chr18:56535714:57530714:NM_001353526||5distD:5000:1000000||ZNF532:+:56530714:56653712~chr18:56536322:57531322:NM_001318728||5distD:5000:1000000||ZNF532:+:56531322:56653712~chr18:56536590:57531590:NM_001353531||5distD:5000:1000000||ZNF532:+:56531590:56653712~chr18:56537108:57532108:NM_001353527||5distD:5000:1000000||ZNF532:+:56532108:56653712~chr18:56707910:57702910:NR_024021||5distD:5000:1000000||OACYLP:+:56702910:56720446~chr18:56812115:57807115:NM_001307941||5distD:5000:1000000||SEC11C:+:56807115:56826063~chr18:56892389:57887389:NM_001012513||5distD:5000:1000000||GRP:+:56887389:56898002~chr18:56364655:57359655:NM_133459||5distD:5000:1000000||CCBE1:-:57098170:57364655~chr18:56301323:57296323:NM_052947||5dist:5000:1000000||ALPK2:-:56148481:56296323~chr18:56945686:57940686:NM_013435||5dist:5000:1000000||RAX:-:56934269:56940686~chr18:56990881:57985881:NM_181654||5dist:5000:1000000||CPLX4:-:56962633:56985881~chr18:56567227:57562227:NM_021127||5dist:5000:1000000||PMAIP1:+:57567227:57571537     R~T
