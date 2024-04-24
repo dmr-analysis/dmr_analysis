@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>demo2 &mdash; dmr_analysis 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="demo3" href="demo3.html" />
+    <link rel="prev" title="demo1" href="demo1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dmr_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_analysis_block.html">dmr_analysis_block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine_multChrs4rank.html">dmr_combine_multChrs4rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_selected4plot.html">dmr_selected4plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2genome.html">dmr_map2genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2chromSegment.html">dmr_map2chromSegment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_cal2genome_percent.html">dmr_cal2genome_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_cal2chromSegment_percent.html">dmr_cal2chromSegment_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_percent2plot.html">dmr_percent2plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine2geneAnnot.html">dmr_combine2geneAnnot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_exportData.html">dmr_exportData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_gene_annotation.html">dmr_gene_annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_accuracy4cluster.html">check_accuracy4cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo1.html">demo1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">demo2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-demo2">Run Demo2:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-dmr-prediction">Step 1: DMR Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-plot-and-export-dmrs">Step 2: Plot and Export DMRs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo3.html">demo3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dmr_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">demo2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/demo2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="demo2">
+<h1>demo2<a class="headerlink" href="#demo2" title="Permalink to this heading"></a></h1>
+<p>HAP:
+___</p>
+<p>This script is a Bash script that calls the dmr_analysis program to predict differentially methylated regions (DMRs) and methylated regions (MRs) from whole-genome bisulfite sequencing (WGBS) data for HAP Cells.</p>
+<section id="run-demo2">
+<h2>Run Demo2:<a class="headerlink" href="#run-demo2" title="Permalink to this heading"></a></h2>
+<p>Demo2 can be run by executing the bash script given with the pacakge. In this demo DNA methylation Regions are found and ranked.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>job_dmr
+</pre></div>
+</div>
+<p>While <cite>job_dmr</cite> is run in a cluster computer (SAGA) provided by Norwegian Research Infrastructure Services(NRIS). Remember to change this according to your machine. <cite>job_dmr</cite> looks like this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=demo2-dmr</span>
+<span class="c1">#SBATCH --time=5:00:00</span>
+<span class="c1">#SBATCH --mem-per-cpu=15G --partition=bigmem</span>
+<span class="c1"># Number of cores:</span>
+<span class="c1">#SBATCH --cpus-per-task=15</span>
+
+<span class="c1">#set up job environment</span>
+<span class="c1">#source /etc/profile.d/modules.csh</span>
+<span class="c1">#source /cluster/bin/jobsetup</span>
+<span class="c1">#module use --append /cluster/etc/modulefiles</span>
+<span class="c1">#module load java/jdk1.7.0_80</span>
+<span class="c1">#module unload Java/1.8.0_212</span>
+<span class="c1">#module purge</span>
+<span class="c1">#module --ignore-cache load Java/1.7.0_80</span>
+module<span class="w"> </span>load<span class="w"> </span>BEDTools/2.27.1-foss-2018b
+
+./demo2_hap1_cell.sh
+</pre></div>
+</div>
+<p>Here this job calls a shell script file <cite>demo2_hap1_cell.sh</cite>. This script is prepared by calling different modules of the dmr analysis. The demo assumes that the input data is already prepared in bed format, organized in chromosome named folders, and that the genome size file and refFlat files are available in a separate folder. Some initial parameter setting is done in the start of the script file as follows:</p>
+<p><strong>In folder path:</strong> final_demo_data/hap1_cell/in_data/WGBS-data/</p>
+<p><strong>Out folder path:</strong> final_demo_data/hap1_cell/out_data/DMR_CpG_context/</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1">#!/bin/bash</span>
+<span class="c1">#use bash script to call dmr_analysis</span>
+<span class="c1">#Please note variable under &quot;#-- &quot; have to be manually adjusted in different run or in different input data!</span>
+
+<span class="c1">#path of input data folder</span>
+<span class="c1">#here, we assume all WGBS methylation profiles are already prepared in bed format at chromosome named folders under in_wgbs_folder,</span>
+<span class="c1">#--  where file names indicate the sample name and conditions</span>
+<span class="nv">in_wgbs_folder</span><span class="o">=</span><span class="s1">&#39;../../final_demo_data/hap1_cell/in_data/WGBS-data/&#39;</span>
+
+<span class="c1">#path of input reference genome folder</span>
+<span class="c1">#-- where genome size file and refFlat files will be used in making predefined genomic regions (e.g., TSS, TES, gene et al.) by using dmr_gene_annotation</span>
+<span class="nv">in_genome_folder</span><span class="o">=</span><span class="s1">&#39;../../final_demo_data/genome/hg38/&#39;</span>
+<span class="nv">in_genome_refFlat</span><span class="o">=</span><span class="s1">&#39;hg38.refFlat.txt&#39;</span>
+<span class="nv">in_genome_size</span><span class="o">=</span><span class="s1">&#39;hg38.chrom.sizes.clear.sorted&#39;</span>
+<span class="nv">replace</span><span class="o">=</span><span class="s1">&#39;_clean_sorted.bed&#39;</span>
+<span class="nv">finds</span><span class="o">=</span><span class="s1">&#39;.txt&#39;</span>
+<span class="nv">in_sorted_refFlat</span><span class="o">=</span><span class="si">${</span><span class="nv">in_genome_refFlat</span><span class="p">//</span><span class="nv">$finds</span><span class="p">/</span><span class="nv">$replace</span><span class="si">}</span>
+
+<span class="c1">#path of input chromatin segment folder</span>
+<span class="c1">#such as combined chromatin segment from six human cell lines generated from Encode project https://genome.ucsc.edu/cgi-bin/hgFileUi?db=hg19&amp;g=wgEncodeAwgSegmentation</span>
+<span class="c1">#-- where each predicted chromatin type (e.g., TSS, Enhancers) is listed in a bed formated file and the file name indicate the predicted chromatin type.</span>
+<span class="nv">in_chromSegment_folder</span><span class="o">=</span><span class="s1">&#39;../../final_demo_data/chromSegment/hg38/&#39;</span>
+
+<span class="c1">#output data folder</span>
+<span class="c1">#path to output folders</span>
+<span class="c1">#-- where predicted DMR/MRs will be exported</span>
+<span class="nv">out_result_folder</span><span class="o">=</span><span class="s1">&#39;../../final_demo_data/hap1_cell/out_data/DMR_CpG_context&#39;</span>
+
+<span class="c1">#-- Name of output folders and files that will be created in out_result_folder</span>
+<span class="nv">out_folder4genome_map</span><span class="o">=</span><span class="s1">&#39;out_map2genome&#39;</span>
+<span class="nv">logProb_cutoff</span><span class="o">=</span><span class="m">0</span>.7
+<span class="nv">out_file4genome_map</span><span class="o">=</span><span class="s1">&#39;wild_vs_ko_DMR_hyper_hypo_mix_0.7.csv&#39;</span>
+<span class="nv">out_folder4chromSegment_map</span><span class="o">=</span><span class="s1">&#39;out_map2chromSegment&#39;</span>
+<span class="nv">out_file4chromSeg_map</span><span class="o">=</span><span class="s1">&#39;wild_vs_ko_DMR_hyper_hypo_mix_in_chromSeg_0.7.csv&#39;</span>
+<span class="c1">#a file name that contains all ranked DMRs by combining results from all chromosomes</span>
+<span class="nv">mr_IN_FILE</span><span class="o">=</span><span class="s1">&#39;3_chroms_all_mr_data_range_dmrRanking&#39;</span>
+</pre></div>
+</div>
+<p><strong>In folder path:</strong> final_demo_data/hap1_cell/in_data/WGBS-data/</p>
+<p>WGBS methylation profiles (input) in bed format looks like the following.
+Path: <cite>final_demo_data/fl_12samples/in_data/WGBS-data/chr18/</cite></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chr3<span class="w">    </span><span class="m">8101576</span><span class="w"> </span><span class="m">8101576</span><span class="w"> </span><span class="m">0</span>.30<span class="w">    </span><span class="m">10</span><span class="w">      </span>-
+chr3<span class="w">    </span><span class="m">8101629</span><span class="w"> </span><span class="m">8101629</span><span class="w"> </span><span class="m">0</span>.40<span class="w">    </span><span class="m">10</span><span class="w">      </span>+
+chr3<span class="w">    </span><span class="m">8101630</span><span class="w"> </span><span class="m">8101630</span><span class="w"> </span><span class="m">0</span>.73<span class="w">    </span><span class="m">11</span><span class="w">      </span>-
+chr3<span class="w">    </span><span class="m">8101677</span><span class="w"> </span><span class="m">8101677</span><span class="w"> </span><span class="m">0</span>.88<span class="w">    </span><span class="m">8</span><span class="w">       </span>+
+chr3<span class="w">    </span><span class="m">8101678</span><span class="w"> </span><span class="m">8101678</span><span class="w"> </span><span class="m">0</span>.29<span class="w">    </span><span class="m">7</span><span class="w">       </span>-
+chr3<span class="w">    </span><span class="m">8102774</span><span class="w"> </span><span class="m">8102774</span><span class="w"> </span><span class="m">0</span>.50<span class="w">    </span><span class="m">16</span><span class="w">      </span>+
+chr3<span class="w">    </span><span class="m">8102775</span><span class="w"> </span><span class="m">8102775</span><span class="w"> </span><span class="m">0</span>.60<span class="w">    </span><span class="m">5</span><span class="w">       </span>-
+chr3<span class="w">    </span><span class="m">8102842</span><span class="w"> </span><span class="m">8102842</span><span class="w"> </span><span class="m">0</span>.94<span class="w">    </span><span class="m">17</span><span class="w">      </span>+
+chr3<span class="w">    </span><span class="m">8103610</span><span class="w"> </span><span class="m">8103610</span><span class="w"> </span><span class="m">0</span>.67<span class="w">    </span><span class="m">6</span><span class="w">       </span>-
+</pre></div>
+</div>
+</section>
+<section id="step-1-dmr-prediction">
+<h2>Step 1: DMR Prediction<a class="headerlink" href="#step-1-dmr-prediction" title="Permalink to this heading"></a></h2>
+<p>In the first step, the DMRs are predicted and then predicted DMRs and MRs are then exported to the output data folder, and the results from all chromosomes are combined and ranked.
+- In part a, the <cite>dmr_analysis_block</cite> module is used to predict DMRs in chr18 and chrY.
+- They are combined using the <cite>dmr_combine_multChrs4rank</cite> script to combine and rank the DMRs across multiple chromosomes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#STEP 1. run dmr_analysis to predict DMRs</span>
+<span class="c1">#a) do dmr_analysis in blocks</span>
+<span class="k">for</span><span class="w"> </span>in_chrom<span class="w"> </span><span class="k">in</span><span class="w"> </span>chr3<span class="w"> </span>chr9<span class="w"> </span>chr13
+<span class="k">do</span>
+dmr_analysis<span class="w"> </span>dmr_analysis_block<span class="w"> </span>--in_file_folder<span class="w"> </span><span class="nv">$in_wgbs_folder</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--chromosome<span class="w"> </span><span class="nv">$in_chrom</span><span class="w"> </span>--group_key<span class="w"> </span><span class="nv">$in_chrom</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--out_file_folder<span class="w"> </span><span class="nv">$out_result_folder</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--wildType_fileString<span class="w"> </span>HAP1_P<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--data_start_position<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data_end_position<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--maximum_adjacency_length<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--minimum_block_size<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--P_cutoff<span class="w"> </span><span class="m">0</span>.05<span class="w"> </span>--minimum_percentage_changes<span class="w"> </span><span class="m">0</span>.0001<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--percentage_cutoff<span class="w"> </span><span class="m">0</span>.05,0.1,0.2<span class="w"> </span>--low_median_high_cutoff<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--number_of_processes<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--is_smoothed_data<span class="w"> </span><span class="m">2</span><span class="w"> </span>--is_moderate_ttest<span class="w"> </span><span class="m">0</span><span class="w"> </span>--is_export_data<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--column_splitBy_dotOrUnderscore<span class="w"> </span><span class="m">0</span>
+<span class="k">done</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;dmr_analysis_block - Done&quot;</span>
+
+<span class="c1">#b) combine results from multiple chromosomes and rank the DMRs</span>
+dmr_analysis<span class="w"> </span>dmr_combine_multChrs4rank<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_chroms_number<span class="w"> </span>chr3,chr9,chr13<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_file_fold<span class="w"> </span><span class="nv">$out_result_folder</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_is_smoothed_data<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_LogReg_proba<span class="w"> </span><span class="m">0</span>.7<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_low_median_high_cutoff<span class="w"> </span>high<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_file_ending_string<span class="w"> </span>_range.tsv
+<span class="nb">echo</span><span class="w"> </span>dmr_combine_multChrs4rank<span class="w"> </span>-<span class="w"> </span>Done
+</pre></div>
+</div>
+</section>
+<section id="step-2-plot-and-export-dmrs">
+<h2>Step 2: Plot and Export DMRs<a class="headerlink" href="#step-2-plot-and-export-dmrs" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>In the second step, the script plots using dmr_selected4plot and exports data for selected DMRs using the module dmr_exportData. The code and parameter setting can be seen as follows:</p></li>
+<li><p>In part a, the <cite>dmr_selected4plot</cite> module is used to select DMRs for plotting.</p></li>
+<li><p>In part b, output data and results are then exported using the <cite>dmr_exportData</cite> module. Here only chromosome 18 is selected for demo purposes.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#STEP 2. Plot and export data</span>
+<span class="nv">chrom</span><span class="o">=</span><span class="s1">&#39;chr3&#39;</span>
+<span class="c1">#-- please note the name of in_DMR_file may be changed in different run because of the parameters, the total number of input and the top percentage et al</span>
+<span class="c1">#in_DMR_file=${chrom}&#39;_maxDist_1000_minSize_5_DMR_clusterAccuracy_gt_0.5_miniMethyChange_gt_0.05_0.1_0.2_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0_576_range_dmrRanking_top_0.97_minLogReg_proba_0.7&#39;</span>
+<span class="nv">in_DMR_file</span><span class="o">=</span><span class="si">${</span><span class="nv">chrom</span><span class="si">}</span><span class="s1">&#39;_all_mr_data_range_dmrRanking.tsv&#39;</span>
+<span class="nv">in_data_file</span><span class="o">=</span><span class="si">${</span><span class="nv">chrom</span><span class="si">}</span><span class="s1">&#39;_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt.gz&#39;</span>
+<span class="nv">in_wildType_string</span><span class="o">=</span><span class="s1">&#39;HAP1_P&#39;</span>
+
+
+<span class="c1">#some additional features for plotting and exporting data</span>
+<span class="c1">#select DMR for ploting such as mr1,mr2,mr3 from selected chromosome</span>
+<span class="c1">#here --in_DMR_file is exported by dmr_combine_multChrs4rank at folder &quot;out_result_folder&quot;/chrY/plots</span>
+<span class="c1">##--in_data_file is exported by dmr_analysis_block at folder &quot;out_result_folder&quot;/chrY</span>
+dmr_analysis<span class="w"> </span>dmr_selected4plot<span class="w"> </span>--in_DMR_file<span class="w"> </span><span class="si">${</span><span class="nv">in_DMR_file</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_data_file<span class="w"> </span><span class="si">${</span><span class="nv">in_data_file</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_data_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">chrom</span><span class="si">}</span>/<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--column_splitBy_dotOrUnderscore<span class="w"> </span><span class="m">0</span><span class="w"> </span>--is_plot<span class="w"> </span><span class="m">1</span><span class="w"> </span>--is_export<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--needs_check_mr<span class="w"> </span>mr1,mr2,mr3<span class="w"> </span>--wildType_fileString<span class="w"> </span><span class="si">${</span><span class="nv">in_wildType_string</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--out_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/out_selected4plot
+<span class="nb">echo</span><span class="w"> </span>plot<span class="w"> </span>selected<span class="w"> </span>MR<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#export selected DMR based on bed format file 0</span>
+<span class="c1">##--input_file contains all MRs in bed foramt that need to extract their raw and smoothed methylation data</span>
+dmr_analysis<span class="w"> </span>dmr_exportData<span class="w">  </span><span class="se">\</span>
+<span class="w">                       </span>--input_mr_data_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                       </span>--output_file_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/test_mr_out<span class="w"> </span><span class="se">\</span>
+<span class="w">                       </span>--input_file_format<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                        </span>--column_splitBy_dotOrUnderscore<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                       </span>--wildType_fileString<span class="w"> </span><span class="si">${</span><span class="nv">in_wildType_string</span><span class="si">}</span><span class="w"> </span>--input_file<span class="w"> </span>test_mr.bed
+<span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>selected<span class="w"> </span>MR<span class="w"> </span>-<span class="w"> </span>Done
+</pre></div>
+</div>
+<p>### Step 3: DMR mapping:</p>
+<p>In the third step, it maps the predicted DMRs and MRs to predefined genomic regions using dmr_analysis. This demo also includes several parameters that can be manually adjusted , such as the path of the input and output data folders, the name of output folders and files, and the selected DMRs for plotting.</p>
+<ul class="simple">
+<li><p>In part a, genomic regions are generated using the <cite>dmr_analysis</cite> module <cite>dmr_gene_annotation</cite>.</p></li>
+<li><p>In part b, DMRs are mapped into genomic regions defined in part a.</p></li>
+<li><p>Part c performs percentage calculations of DMRs in annotated genomic regions.</p></li>
+<li><p>These percentages from part c are plotted in the last step d..</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#STEP 3. mapp predicted DMR/MRs to predefined genomic regions (e.g., TSS, TES, 5dist etl al) or predicted chromatin segments for further analysis</span>
+<span class="c1">#below is a result file generated from dmr_combine_multChrs4rank, where DMR/MRs from multiple chromosomes are combined and ranked them by logisitic regression model</span>
+<span class="c1">#-- Please note this file name needs to be input manually because it is generated after running &quot;dmr_combine_multChrs4rank&quot; and expored at &quot;out_result_folder&quot;</span>
+<span class="c1">#mr_IN_FILE=&#39;3_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__range_dmrRanking_top_0.97_minLogReg_proba_0.7&#39;</span>
+
+
+<span class="c1">#a) generate predefined genomic regions (e.g., TSS, TES, gene et al.) by dmr_analysis (Used for gene annotation, Omer 27, April, 23)</span>
+
+<span class="c1">#Here, to edit exported &quot;list_region_files.txt&quot; for adding/removing predefined genomic regions</span>
+<span class="c1">#For example, to add file path for enhancer reginos in &quot;list_region_files.txt&quot; if user want to include enhancer in the analysis</span>
+
+dmr_analysis<span class="w"> </span>dmr_gene_annotation<span class="w"> </span>-F<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span><span class="w"> </span>-i<span class="w"> </span>no<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-xL<span class="w"> </span><span class="m">50000000</span><span class="w"> </span>-X<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-Y<span class="w"> </span><span class="m">1000</span><span class="w"> </span>-M<span class="w"> </span><span class="m">5000</span><span class="w"> </span>-N<span class="w"> </span><span class="m">1000000</span><span class="w"> </span>-hu<span class="w"> </span>yes<span class="w"> </span>-n<span class="w"> </span>no<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-r<span class="w"> </span><span class="si">${</span><span class="nv">in_genome_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">in_genome_refFlat</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-g<span class="w"> </span><span class="si">${</span><span class="nv">in_genome_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">in_genome_size</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nb">export</span><span class="w"> </span>genome<span class="w"> </span>annotation<span class="w"> </span>files<span class="w"> </span>at:<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/data
+<span class="nb">echo</span><span class="w"> </span>gene_annotation-Done
+
+<span class="c1">#b) map DMR to predefined genomic regions such as TSS, TES, gene et al.</span>
+dmr_analysis<span class="w"> </span>dmr_map2genome<span class="w"> </span>--in_sortedDMR_file<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">mr_IN_FILE</span><span class="si">}</span>.bed<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_geneRegion_file<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/list_region_files.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_outFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4genome_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_refFlat_file<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/data/<span class="si">${</span><span class="nv">in_sorted_refFlat</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span>dmr_map2genome<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#c) calculate percentage of DMR in annotated genomic regions</span>
+dmr_analysis<span class="w"> </span>dmr_cal2genome_percent<span class="w"> </span>--in_outFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4genome_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_outFile_name<span class="w"> </span><span class="si">${</span><span class="nv">out_file4genome_map</span><span class="si">}</span><span class="w"> </span>--in_LogReg_proba<span class="w"> </span><span class="si">${</span><span class="nv">logProb_cutoff</span><span class="si">}</span><span class="w">  </span><span class="se">\</span>
+<span class="w">        </span>--in_fileName_string<span class="w"> </span><span class="nv">$mr_IN_FILE</span>
+<span class="nb">echo</span><span class="w"> </span>dmr_cal2genome_percent<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#d) plot percentage of DMR in annotated genomic regions</span>
+dmr_analysis<span class="w"> </span>dmr_percent2plot<span class="w"> </span>--in_countFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4genome_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_countFile_name<span class="w"> </span><span class="si">${</span><span class="nv">out_file4genome_map</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span>dmr_percent2plot<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#e) map DMR to predicated chromatin states such as predicated chromatin segment from 6 human cell lines.</span>
+dmr_analysis<span class="w"> </span>dmr_map2chromSegment<span class="w"> </span>--in_chromatinSegment_file_folder<span class="w"> </span><span class="si">${</span><span class="nv">in_chromSegment_folder</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_fileName_string<span class="w"> </span><span class="s1">&#39;combined_six*bed.gz&#39;</span><span class="w"> </span>--in_combined_chromatinSegment_exist<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_outFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4chromSegment_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_DMR_file<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">mr_IN_FILE</span><span class="si">}</span>.bed
+<span class="nb">echo</span><span class="w"> </span>dmr_map2chromSegment<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#f) calculate percentage of DMRs in predicted chromatin states.</span>
+dmr_analysis<span class="w"> </span>dmr_cal2chromSegment_percent<span class="w"> </span>--in_outFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4chromSegment_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_outFile_name<span class="w"> </span><span class="si">${</span><span class="nv">out_file4chromSeg_map</span><span class="si">}</span><span class="w">  </span><span class="se">\</span>
+<span class="w">        </span>--in_fileName_string<span class="w"> </span><span class="si">${</span><span class="nv">mr_IN_FILE</span><span class="si">}</span>_combined_six_cells_chromatin_segment_min10
+<span class="nb">echo</span><span class="w"> </span>dmr_cal2chromSegment_percent<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#g) plot percentage DMR in chromSegment</span>
+dmr_analysis<span class="w"> </span>dmr_percent2plot<span class="w"> </span>--in_countFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="si">${</span><span class="nv">out_folder4chromSegment_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--in_countFile_name<span class="w"> </span><span class="si">${</span><span class="nv">out_file4chromSeg_map</span><span class="si">}</span>
+<span class="nb">echo</span><span class="w"> </span>dmr_percent2plot<span class="w"> </span>-<span class="w"> </span>Done
+
+<span class="c1">#h) Combine annotated results from both genome and chromatin segment</span>
+<span class="c1">#please note both genome and chromatin segment have to be available before running this function.</span>
+<span class="c1">#This function is slow and not recommend to use for large data but use dds_analysis instead.</span>
+dmr_analysis<span class="w"> </span>dmr_combine2geneAnnot<span class="w"> </span>--number_of_processes<span class="w"> </span><span class="m">10</span><span class="w"> </span>--miniLogReg_proba_cutoff<span class="w"> </span><span class="m">0</span>.7<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--sortedDMR_file<span class="w"> </span><span class="si">${</span><span class="nv">mr_IN_FILE</span><span class="si">}</span>.bed<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dmr_outFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_result_folder</span><span class="si">}</span>/<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dmr_genomeFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_folder4genome_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dmr_chromSegmentFile_folder<span class="w"> </span><span class="si">${</span><span class="nv">out_folder4chromSegment_map</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dmr_genomeFile_string<span class="w"> </span><span class="s1">&#39;3_chroms_*&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>--dmr_chromSegmentFile_string<span class="w"> </span><span class="s1">&#39;3_chroms_*&#39;</span>
+<span class="nb">echo</span><span class="w"> </span>dmr_combine2geneAnnot<span class="w"> </span>-<span class="w"> </span>Done
+</pre></div>
+</div>
+</section>
+<section id="output">
+<h2>Output:<a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p>Output produced can be found under the folder:
+final_demo_data/hap1_cell/out_data/DMR_CpG_context/</p>
+</div></blockquote>
+<p>A log file is maintained to track the progress and steps of pipeline.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:17<span class="w"> </span>INFO<span class="w">     </span>File<span class="w"> </span>load<span class="w"> </span><span class="o">[</span><span class="s1">&#39;../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt.gz&#39;</span><span class="o">]</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Blocks<span class="w"> </span>with<span class="w"> </span>distance<span class="w"> </span>greater<span class="w"> </span>than<span class="w"> </span><span class="m">1000</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">      </span>and<span class="w"> </span>minimum<span class="w"> </span>data<span class="w"> </span>points<span class="w"> </span><span class="k">in</span><span class="w"> </span>block<span class="w"> </span><span class="m">5</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>block<span class="w"> </span>size<span class="w"> </span><span class="m">576</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Export<span class="w"> </span>data<span class="w"> </span><span class="k">in</span><span class="w">  </span>../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3_MR_data4maxBlockDistance_1000_minBlockSize_5_data.txt
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>minimum<span class="w"> </span>MR<span class="w"> </span>length<span class="w"> </span><span class="m">44</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>maximum<span class="w"> </span>MR<span class="w"> </span>length<span class="w"> </span><span class="m">284216</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Maximum<span class="w"> </span>length<span class="w"> </span>of<span class="w"> </span>adjancey<span class="w"> </span>CpG<span class="w"> </span>sites<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w"> </span>block<span class="w"> </span><span class="m">1000</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Hist<span class="w"> </span>plot<span class="w"> </span>n<span class="w"> </span><span class="o">[</span><span class="w">  </span><span class="m">3</span><span class="w">  </span><span class="m">33</span><span class="w">  </span><span class="m">47</span><span class="w"> </span><span class="m">231</span><span class="w">  </span><span class="m">82</span><span class="w"> </span><span class="m">142</span><span class="w">  </span><span class="m">24</span><span class="w">  </span><span class="m">14</span><span class="o">]</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">              </span>bins<span class="w"> </span><span class="o">[</span><span class="w">    </span><span class="m">44</span><span class="w">    </span><span class="m">100</span><span class="w">    </span><span class="m">500</span><span class="w">   </span><span class="m">1000</span><span class="w">   </span><span class="m">5000</span><span class="w">  </span><span class="m">10000</span><span class="w">  </span><span class="m">50000</span><span class="w"> </span><span class="m">100000</span><span class="w"> </span><span class="m">284316</span><span class="o">]</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>mininum<span class="w"> </span>MR<span class="w"> </span>data<span class="w"> </span>size<span class="w"> </span><span class="m">5</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>maximum<span class="w"> </span>MR<span class="w"> </span>data<span class="w"> </span>size<span class="w"> </span><span class="m">7535</span>
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Wild<span class="w"> </span><span class="nb">type</span><span class="w"> </span>/control<span class="w"> </span>sample<span class="w"> </span>file<span class="w"> </span>name<span class="w"> </span>is<span class="w"> </span>HAP1_P
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Wild/control<span class="w"> </span>sample<span class="w"> </span><span class="m">2</span><span class="w"> </span>,
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Tumor/KO<span class="w"> </span>sample<span class="w"> </span><span class="m">2</span><span class="w"> </span>,
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>DMR<span class="w"> </span><span class="nb">export</span><span class="w"> </span>path<span class="w"> </span>../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>DMR<span class="w"> </span><span class="nb">export</span><span class="w"> </span>MR<span class="w"> </span>data<span class="w"> </span>path<span class="w"> </span>../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/data
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:24:18<span class="w"> </span>INFO<span class="w">     </span>Do<span class="w"> </span>parallel<span class="w"> </span>calculation<span class="w"> </span>by<span class="w"> </span>using<span class="w"> </span><span class="m">15</span><span class="w"> </span>processes
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:27:43<span class="w"> </span>INFO<span class="w">     </span>Export<span class="w"> </span>all<span class="w"> </span>position<span class="w"> </span>results<span class="w"> </span>at<span class="w"> </span>:<span class="w"> </span>../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data.tsv
+Wed,<span class="w"> </span><span class="m">19</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">2023</span><span class="w"> </span><span class="m">16</span>:27:43<span class="w"> </span>INFO<span class="w">     </span>Export<span class="w"> </span>range<span class="w"> </span>position<span class="w"> </span>results<span class="w"> </span>at<span class="w"> </span>:<span class="w"> </span>../../final_demo_data/hap1_cell/out_data/DMR_CpG_context/chr3/plots/chr3_all_mr_data_range.tsv
+</pre></div>
+</div>
+<p>The output file contain information about DMR and are ranked. Each row shows one region with the pvalue of smoothed and interpolated data, percentages and many other values calculated in the pipeline.
+Here is how an output file look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mr_id<span class="w">   </span>T-test_pval_smoothed_data<span class="w">       </span>T-test_pval_interpolated_data<span class="w">   </span>percent_data_passed_ttest<span class="w">       </span>gcb_vs_grpsDist_pval<span class="w">    </span>tumor_vs_grpsDist_pval<span class="w">  </span>gcb_vs_grpsDist_tval<span class="w">    </span>tumor_vs_grpsDist_tval<span class="w">  </span>cluster_accuracy<span class="w">        </span>low_negative_tumor_vs_gcb_percent<span class="w"> </span>median_negative_tumor_vs_gcb_percent<span class="w">    </span>high_negative_tumor_vs_gcb_percent<span class="w">      </span>low_positive_tumor_vs_gcb_percent<span class="w">       </span>median_positive_tumor_vs_gcb_percent<span class="w">  </span>high_positive_tumor_vs_gcb_percent<span class="w">      </span>is_DMR<span class="w">  </span>position<span class="w">  </span>DMR_type<span class="w">        </span>chroms<span class="w">  </span>log10_gcb_vs_grpsDist_pval<span class="w">      </span>log10_tumor_vs_grpsDist_pval<span class="w">    </span>log10_gcb_vs_grpsDist_pval_minMaxNorm<span class="w">   </span>log10_tumor_vs_grpsDist_pval_minMaxNorm<span class="w"> </span>dmr_weight_score<span class="w">        </span>percent_data_passed_ttest_gt_pvallogReg_score<span class="w">     </span>logReg_predicted_dmr
+mr0<span class="w">     </span><span class="m">0</span>.78693<span class="w"> </span><span class="m">0</span>.994458<span class="w">        </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.913787<span class="w">        </span><span class="m">0</span>.913787<span class="w">        </span><span class="m">0</span>.108263<span class="w">        </span><span class="m">0</span>.108263<span class="w">        </span><span class="m">0</span>.5<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">    </span><span class="m">0</span>.0<span class="w">     </span>U<span class="w">       </span>chr3,8101575-8101678,6<span class="w">  </span>mix<span class="w">     </span>chr3<span class="w">    </span><span class="m">0</span>.039154968074749066<span class="w">    </span><span class="m">0</span>.039154968074749066<span class="w">      </span><span class="m">0</span>.005499076738065728<span class="w">    </span><span class="m">0</span>.005499076738065728<span class="w">   </span><span class="m">0</span>.06175970455618103<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>-6.006634647005305<span class="w">      </span><span class="m">0</span>.0024563126376758036
+mr310<span class="w">   </span><span class="m">0</span>.823454<span class="w">        </span><span class="m">0</span>.96343<span class="w"> </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.190969<span class="w">        </span><span class="m">0</span>.190969<span class="w">        </span><span class="m">1</span>.30772<span class="w"> </span><span class="m">1</span>.30772<span class="w"> </span><span class="m">0</span>.5<span class="w">     </span><span class="m">0</span>.741935<span class="w">        </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0645161<span class="w">       </span><span class="m">0</span>.0<span class="w">    </span><span class="m">0</span>.0<span class="w">     </span>U<span class="w">       </span>chr3,13714536-13714846,5<span class="w">        </span>mix<span class="w">     </span>chr3<span class="w">    </span><span class="m">0</span>.7190368549579803<span class="w"> </span><span class="m">0</span>.7190368549579803<span class="w">      </span><span class="m">0</span>.10371096336127526<span class="w">     </span><span class="m">0</span>.10371096336127526<span class="w">     </span><span class="m">0</span>.0931875082756081<span class="w">      </span><span class="m">0</span>.0<span class="w">     </span>-5.56693922210052<span class="w">       </span><span class="m">0</span>.003807608041856897
+mr70<span class="w">    </span><span class="m">0</span>.0331731<span class="w">       </span><span class="m">0</span>.852834<span class="w">        </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.359298<span class="w">        </span><span class="m">0</span>.359298<span class="w">        </span><span class="m">0</span>.916704<span class="w">        </span><span class="m">0</span>.916704<span class="w">        </span><span class="m">0</span>.5<span class="w">     </span><span class="m">0</span>.166667<span class="w">        </span><span class="m">0</span>.104167<span class="w">       </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0833333<span class="w">       </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>U<span class="w">       </span>chr3,8666424-8678426,299<span class="w">        </span>mix<span class="w">       </span>chr3<span class="w">    </span><span class="m">0</span>.44454505615790274<span class="w">     </span><span class="m">0</span>.44454505615790274<span class="w">     </span><span class="m">0</span>.06405943278978334<span class="w">     </span><span class="m">0</span>.06405943278978334<span class="w">     </span><span class="m">0</span>.08049901849273067<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>-5.463230316370396<span class="w">      </span><span class="m">0</span>.004221937254744937
+mr498<span class="w">   </span><span class="m">0</span>.146273<span class="w">        </span><span class="m">0</span>.769511<span class="w">        </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.316448<span class="w">        </span><span class="m">0</span>.316448<span class="w">        </span>-1.00178<span class="w">        </span>-1.00178<span class="w">        </span><span class="m">0</span>.5<span class="w">     </span><span class="m">0</span>.327273<span class="w">        </span><span class="m">0</span>.163636<span class="w">       </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>U<span class="w">       </span>chr3,16059215-16073082,142<span class="w">      </span>mix<span class="w">     </span>chr3<span class="w">      </span><span class="m">0</span>.4996974811853724<span class="w">      </span><span class="m">0</span>.4996974811853724<span class="w">      </span><span class="m">0</span>.07202643973362799<span class="w">     </span><span class="m">0</span>.07202643973362799<span class="w">     </span><span class="m">0</span>.08304846071476095<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>-5.267008086625192<span class="w">      </span><span class="m">0</span>.005132543943399981
+mr89<span class="w">    </span><span class="m">0</span>.261107<span class="w">        </span><span class="m">0</span>.383387<span class="w">        </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.38618<span class="w"> </span><span class="m">0</span>.38618<span class="w"> </span><span class="m">0</span>.866566<span class="w">        </span><span class="m">0</span>.866566<span class="w">        </span><span class="m">0</span>.5<span class="w">     </span><span class="m">0</span>.367347<span class="w">        </span><span class="m">0</span>.22449<span class="w"> </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.102041<span class="w">       </span><span class="m">0</span>.0<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>U<span class="w">       </span>chr3,9262308-9274593,115<span class="w">        </span>mix<span class="w">     </span>chr3<span class="w">    </span><span class="m">0</span>.4132100877289246<span class="w">        </span><span class="m">0</span>.4132100877289246<span class="w">      </span><span class="m">0</span>.05953296072741288<span class="w">     </span><span class="m">0</span>.05953296072741288<span class="w">     </span><span class="m">0</span>.07905054743277212<span class="w">     </span><span class="m">0</span>.0<span class="w">     </span>-5.158648410304675<span class="w">      </span><span class="m">0</span>.005716597972610158
+</pre></div>
+</div>
+<p>Top two rows of all results file looks like following. It gives information about methylated region, its relative chromosome number, logistic regression probablity and genome information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mr_chrs<span class="w"> </span>mr_start_pos<span class="w">    </span>mr_end_pos<span class="w">      </span>mr_info<span class="w"> </span>mr_logReg_proba<span class="w"> </span>genome_info<span class="w">     </span>chromSegment_info
+chr3<span class="w">    </span><span class="m">8102773</span><span class="w"> </span><span class="m">8107735</span><span class="w"> </span>chr3:mr1:mix:D<span class="w">  </span><span class="m">0</span>.987977<span class="w">        </span>chr3:7501658:8496658:NR_033378<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>LMCD1AS1:-:8221146:8501658~chr3:7644798:8639798:NM_001256748<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>SSUH2:-:8619402:8644798~chr3:7652084:8647084:NM_015931<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>SSUH2:-:8619402:8652084~chr3:7769614:8764614:NM_000916<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:875040:8769614~chr3:7769232:8764232:NM_001354655<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:8750408:8769232~chr3:7768731:8763731:NM_001354656<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:8750408:8768731~chr3:7963472:8958472:NM_020165<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>RAD18:-:8877074:8963472~chr3:8021307:8216146<span class="o">||</span>intergenic:5000:1000~chr3:7540284:8535284:NR_046606<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>GRM7AS1:-:7519740:7535284~chr3:8021307:9016307:NR_110131<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LOC101927394:-:7952804:8016307~chr3:7501806:8496806:NM_001278234<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LMCD1:+:8501806:8568125~chr3:7501822:8496822:NM_001278233<span class="p">&amp;</span>NM_001278235<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LMCD1:+:8501822:8574668<span class="p">&amp;</span><span class="m">8551274</span>~chr3:7571781:8566781:NR_024065<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LINC00312:+:8571781:8574668~chr3:7733801:8728801:NM_001234<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>CAV3:+:8733801:8746758<span class="w"> </span>R~T
+chr3<span class="w">    </span><span class="m">8108750</span><span class="w"> </span><span class="m">8115603</span><span class="w"> </span>chr3:mr2:mix:D<span class="w">  </span><span class="m">0</span>.981631<span class="w">  </span>chr3:7501658:8496658:NR_033378<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>LMCD1AS1:-:8221146:8501658~chr3:7644798:8639798:NM_001256748<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>SSUH2:-:86194028644798~chr3:7652084:8647084:NM_015931<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>SSUH2:-:8619402:8652084~chr3:7769614:8764614:NM_000916<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:8750408:8769614~chr3:7769232:8764232:NM_001354655<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:8750408:8769232~chr3:7768731:8763731:NM_001354656<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>OXTR:-:8750408:8768731~chr3:7963472:8958472:NM_020165<span class="o">||</span>5distD:5000:1000000<span class="o">||</span>RAD18:-:8877074:8963472~chr3:8021307:8216146<span class="o">||</span>intergenic:5000:1000~chr3:7540284:853584:NR_046606<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>GRM7AS1:-:7519740:7535284~chr3:8021307:9016307:NR_110131<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LOC101927394:-:7952804:8016307~chr3:7501806:8496806:NM_001278234<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LMCD1:+:8501806:8568125~chr3:7501822:8496822:NM_001278233<span class="p">&amp;</span>NM_001278235<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LMCD1:+:8501822:8574668<span class="p">&amp;</span><span class="m">8551274</span>~chr3:7571781:8566781:NR_024065<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>LINC00312:+:8571781:8574668~chr3:7733801:8728801:NM_001234<span class="o">||</span>5dist:5000:1000000<span class="o">||</span>CAV3:+:8733801:8746758<span class="w"> </span>PF~R~CTCF~T~E~WE
+</pre></div>
+</div>
+<p>From above two mrs, here we will visualize methylation region 2 of chromosome 3.</p>
+<img alt="Chr3 Methylation Region 2" src="../_images/chr3_DMR_mr2.jpg" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="demo1.html" class="btn btn-neutral float-left" title="demo1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="demo3.html" class="btn btn-neutral float-right" title="demo3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Omer &amp; Junbai.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

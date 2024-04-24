@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dmr_cal2chromSegment_percent &mdash; dmr_analysis 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dmr_percent2plot" href="dmr_percent2plot.html" />
+    <link rel="prev" title="dmr_cal2genome_percent" href="dmr_cal2genome_percent.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dmr_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_analysis_block.html">dmr_analysis_block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine_multChrs4rank.html">dmr_combine_multChrs4rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_selected4plot.html">dmr_selected4plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2genome.html">dmr_map2genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2chromSegment.html">dmr_map2chromSegment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_cal2genome_percent.html">dmr_cal2genome_percent</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dmr_cal2chromSegment_percent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#required">Required:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#optional-has-default-values">Optional, has default values:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_percent2plot.html">dmr_percent2plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine2geneAnnot.html">dmr_combine2geneAnnot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_exportData.html">dmr_exportData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_gene_annotation.html">dmr_gene_annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="check_accuracy4cluster.html">check_accuracy4cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo1.html">demo1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo2.html">demo2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo3.html">demo3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dmr_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dmr_cal2chromSegment_percent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/dmr_cal2chromSegment_percent.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dmr-cal2chromsegment-percent">
+<h1>dmr_cal2chromSegment_percent<a class="headerlink" href="#dmr-cal2chromsegment-percent" title="Permalink to this heading"></a></h1>
+<p>Calculate percentage of DMRs in chromatin segment (e.g., generated from ENCODE predictions of 6 human cell lines)</p>
+<section id="required">
+<h2>Required:<a class="headerlink" href="#required" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-inOFolder</span> <span class="pre">IN_OUTFILE_FOLDER,</span> <span class="pre">--in_outFile_folder</span> <span class="pre">IN_OUTFILE_FOLDER</span></code>: Input file folder for chromatin segment out file, for example, export files from “dmr_map2chromSegment”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-inOFile</span> <span class="pre">IN_OUTFILE_NAME,</span> <span class="pre">--in_outFile_name</span> <span class="pre">IN_OUTFILE_NAME</span></code>: Output file name of percentage DMR that will be calculated in chromatin segment regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-inFileStr</span> <span class="pre">IN_FILENAME_STRING,</span> <span class="pre">--in_fileName_string</span> <span class="pre">IN_FILENAME_STRING</span></code>: Input file name string that will be searched (e.g., 24_chroms_high_miniPercentChange_gt_0.0001_Pcutoff_0.05_isSmooth_2_isModTest_0__all_dmrRanking_top_0.95_minLogReg_proba_0.7*) under folder –in_outFile_folder.</p></li>
+</ul>
+<section id="optional-has-default-values">
+<h3>Optional, has default values:<a class="headerlink" href="#optional-has-default-values" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-inLRpb</span> <span class="pre">,</span> <span class="pre">--in_LogReg_proba</span></code>: A probability value used by logistic Regression to select DMRs. The default is 0.8.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dmr_cal2genome_percent.html" class="btn btn-neutral float-left" title="dmr_cal2genome_percent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dmr_percent2plot.html" class="btn btn-neutral float-right" title="dmr_percent2plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Omer &amp; Junbai.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

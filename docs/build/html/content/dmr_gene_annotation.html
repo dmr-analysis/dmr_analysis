@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dmr_gene_annotation &mdash; dmr_analysis 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="check_accuracy4cluster" href="check_accuracy4cluster.html" />
+    <link rel="prev" title="dmr_exportData" href="dmr_exportData.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dmr_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_analysis_block.html">dmr_analysis_block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine_multChrs4rank.html">dmr_combine_multChrs4rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_selected4plot.html">dmr_selected4plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2genome.html">dmr_map2genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_map2chromSegment.html">dmr_map2chromSegment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_cal2genome_percent.html">dmr_cal2genome_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_cal2chromSegment_percent.html">dmr_cal2chromSegment_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_percent2plot.html">dmr_percent2plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_combine2geneAnnot.html">dmr_combine2geneAnnot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmr_exportData.html">dmr_exportData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dmr_gene_annotation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#required-arguments">Required Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optional-arguments">Optional Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="check_accuracy4cluster.html">check_accuracy4cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo1.html">demo1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo2.html">demo2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo3.html">demo3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dmr_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">dmr_gene_annotation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/content/dmr_gene_annotation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dmr-gene-annotation">
+<h1>dmr_gene_annotation<a class="headerlink" href="#dmr-gene-annotation" title="Permalink to this heading"></a></h1>
+<p>Cleans reference file and creates genomic region files (TSS, geneBody, TES, 5dist, and intergenic) from the reference.</p>
+<section id="required-arguments">
+<h2>Required Arguments<a class="headerlink" href="#required-arguments" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span> <span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">--referenceFile</span> <span class="pre">file</span></code>: Reference file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">file</span></code> or <code class="docutils literal notranslate"><span class="pre">--genomeFile</span> <span class="pre">file</span></code>: Genome file, with one column containing chromosome names and another column containing the length of each chromosome.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-hu</span> <span class="pre">y/m/r</span></code> or <code class="docutils literal notranslate"><span class="pre">--human</span> <span class="pre">y/m/r</span></code>: Is the sample from a human? Use <code class="docutils literal notranslate"><span class="pre">yes/y</span></code> for human, <code class="docutils literal notranslate"><span class="pre">mouse/m</span></code> for mouse, or <code class="docutils literal notranslate"><span class="pre">rat/r</span></code> for rat. If not, it must be from either the mouse (<code class="docutils literal notranslate"><span class="pre">m</span></code>) or rat (<code class="docutils literal notranslate"><span class="pre">r</span></code>) genome.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">y/n</span></code> or <code class="docutils literal notranslate"><span class="pre">--numericalChr</span> <span class="pre">y/n</span></code>: Will you operate with numerical chromosome names or not? Use <code class="docutils literal notranslate"><span class="pre">yes/y</span></code> if using numerical chromosome names or <code class="docutils literal notranslate"><span class="pre">no/n</span></code> if using alphanumeric names. The choice must match the chromosome naming convention in the <code class="docutils literal notranslate"><span class="pre">genomeFile</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">no</span></code>.</p></li>
+</ul>
+</section>
+<section id="optional-arguments">
+<h2>Optional Arguments<a class="headerlink" href="#optional-arguments" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-rm</span></code> or <code class="docutils literal notranslate"><span class="pre">--removeMir</span></code>: Remove genes with names starting with ‘Mir’? Use <code class="docutils literal notranslate"><span class="pre">yes/y</span></code> or <code class="docutils literal notranslate"><span class="pre">no/n</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">yes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-X</span></code>: The number of upstream base pairs (bp) for TSS, TES, and genes. The default is 1000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-Y</span></code>: The number of downstream base pairs (bp) for TSS, TES, and genes. The default is 1000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-M</span></code>: The number of base pairs (bp) from the gene start site for the 5dist region. The default is 10000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-N</span></code>: The number of base pairs (bp) from the gene start site for the 5dist region. The default is 1000000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code> or <code class="docutils literal notranslate"><span class="pre">--intergenicBTGenes</span></code>: Are intergenic regions between gene body regions (<code class="docutils literal notranslate"><span class="pre">yes/y</span></code>) or between TSS and TES regions (<code class="docutils literal notranslate"><span class="pre">no/n</span></code>)? The default is <code class="docutils literal notranslate"><span class="pre">yes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code> or <code class="docutils literal notranslate"><span class="pre">--minIntergenicLen</span></code>: The minimum intergenic region distance. The default is 2000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-xL</span></code> or <code class="docutils literal notranslate"><span class="pre">--maxIntergenicLen</span></code>: The maximum intergenic region distance. The default is 10000000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-rem</span></code> or <code class="docutils literal notranslate"><span class="pre">--removeShort</span></code>: Should regions be removed from TSS, TES, and 5dist regions if the gene body is removed due to its size being less than 0? Use <code class="docutils literal notranslate"><span class="pre">yes/y</span></code> or <code class="docutils literal notranslate"><span class="pre">no/n</span></code>. The default is <code class="docutils literal notranslate"><span class="pre">yes</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-F</span></code> or <code class="docutils literal notranslate"><span class="pre">--folderOut</span></code>: The name of the output folder. The default is “out”.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dmr_exportData.html" class="btn btn-neutral float-left" title="dmr_exportData" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="check_accuracy4cluster.html" class="btn btn-neutral float-right" title="check_accuracy4cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Omer &amp; Junbai.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Differential Methylated Region Analysis Tool &mdash; dmr_analysis 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="README" href="content/README.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            dmr_analysis
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="content/README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_analysis_block.html">dmr_analysis_block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_combine_multChrs4rank.html">dmr_combine_multChrs4rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_selected4plot.html">dmr_selected4plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_map2genome.html">dmr_map2genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_map2chromSegment.html">dmr_map2chromSegment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_cal2genome_percent.html">dmr_cal2genome_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_cal2chromSegment_percent.html">dmr_cal2chromSegment_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_percent2plot.html">dmr_percent2plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_combine2geneAnnot.html">dmr_combine2geneAnnot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_exportData.html">dmr_exportData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_gene_annotation.html">dmr_gene_annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/check_accuracy4cluster.html">check_accuracy4cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo1.html">demo1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo2.html">demo2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo3.html">demo3</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">dmr_analysis</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Differential Methylated Region Analysis Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <img alt="https://user-images.githubusercontent.com/79196757/180248926-efd6e216-0683-4549-99f0-e6783224a2c7.png" src="https://user-images.githubusercontent.com/79196757/180248926-efd6e216-0683-4549-99f0-e6783224a2c7.png" />
+<img alt="https://user-images.githubusercontent.com/79196757/180251608-da859f67-aa58-49e8-bea8-a0258be93635.png" src="https://user-images.githubusercontent.com/79196757/180251608-da859f67-aa58-49e8-bea8-a0258be93635.png" />
+<img alt="https://user-images.githubusercontent.com/79196757/180251606-8e257ad0-86d5-4cb7-b549-ed5e5c0aa9eb.jpg" src="https://user-images.githubusercontent.com/79196757/180251606-8e257ad0-86d5-4cb7-b549-ed5e5c0aa9eb.jpg" />
+<img alt="_images/ahhus.png" src="_images/ahhus.png" />
+<section id="differential-methylated-region-analysis-tool">
+<h1>Differential Methylated Region Analysis Tool<a class="headerlink" href="#differential-methylated-region-analysis-tool" title="Permalink to this heading"></a></h1>
+<section id="dmr-analysis-documentation">
+<h2>dmr_analysis Documentation<a class="headerlink" href="#dmr-analysis-documentation" title="Permalink to this heading"></a></h2>
+<p>dmr_analysis is a software tool for differentially Methylated Regions analysis to rank significant DMRs.</p>
+</section>
+<section id="contents">
+<h2>Contents:<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="content/README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/installation.html">installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_analysis_block.html">dmr_analysis_block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_combine_multChrs4rank.html">dmr_combine_multChrs4rank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_selected4plot.html">dmr_selected4plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_map2genome.html">dmr_map2genome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_map2chromSegment.html">dmr_map2chromSegment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_cal2genome_percent.html">dmr_cal2genome_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_cal2chromSegment_percent.html">dmr_cal2chromSegment_percent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_percent2plot.html">dmr_percent2plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_combine2geneAnnot.html">dmr_combine2geneAnnot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_exportData.html">dmr_exportData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/dmr_gene_annotation.html">dmr_gene_annotation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/check_accuracy4cluster.html">check_accuracy4cluster</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo1.html">demo1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo2.html">demo2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="content/demo3.html">demo3</a></li>
+</ul>
+</div>
+<section id="contents-of-the-package">
+<h3>Contents of the package:<a class="headerlink" href="#contents-of-the-package" title="Permalink to this heading"></a></h3>
+<p>The package folder will contain the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">final_demo</span></code> : Contains function scripts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_analysis</span></code> : Contains python source code of the pipeline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> : Instructions about the usage of the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> : List of requirements. Can be used for automatic installation from miniconda or pip.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code>: Setup file for the package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">final_demo_data</span></code>: Contains data in and out for the secondary functions.</p></li>
+</ul>
+</section>
+<section id="pipeline-tasks">
+<h3>Pipeline Tasks:<a class="headerlink" href="#pipeline-tasks" title="Permalink to this heading"></a></h3>
+<p>The pipeline consists of the following tasks. To run a task, type <code class="docutils literal notranslate"><span class="pre">dmr_analysis</span> <span class="pre">task</span> <span class="pre">args</span></code>. To see what are the options for each task of the pipeline, please run: <code class="docutils literal notranslate"><span class="pre">dmr_analysis</span> <span class="pre">-h</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_analysis_block</span></code> : Predict Differentially Methylated Region (DMR) from genome-wide methylation regions such as by using WGBS or other similar techniques.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_combine_multChrs4rank</span></code> : Combine predicted DMRs/MRs from multiple chromosomes then rank the DMRs by using logistic regression model.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_selected4plot</span></code> : Plot figure and export raw/smoothed methylation data for selected DMR or MR.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_map2genome</span></code> : Map all DMR/MRs to reference genome.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_map2chromSegment</span></code> : Map all DMR/MRs to chromatin segments generated from 6 human cell lines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_cal2genome_percent</span></code> : Calculate the percentage of DMRs intersected with predefined genomic regions such as TSS, TES, 5dist et al.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_cal2chromSegment_percent</span></code> : Calculate the percentage of DMRs intersected with chromatin segments generated from 6 human cells.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_percent2plot</span></code> : Plot the percentage of DMRs in predefined genomic or chromatin segment regions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_combine2geneAnnot</span></code> : Combine annotations from both predefined genomic regions and chromatin segments (This function is slow and requests both genome and chromatin segment results available).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_exportData</span></code>: Plot and export data for DMRs/MRs located in specific regions (e.g., DMRs/MRs intersected with mutation block or enhancer regions).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dmr_gene_annotation</span></code>: Clean the reference file and create genomic region files (TSS, geneBody, TES, 5dist, and intergenic) from the reference. This module is reimplemented here from hmst-seq-analyzer tool <a class="reference external" href="https://hmst-seq.github.io/hmst/">https://hmst-seq.github.io/hmst/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="content/README.html" class="btn btn-neutral float-right" title="README" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Omer &amp; Junbai.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
