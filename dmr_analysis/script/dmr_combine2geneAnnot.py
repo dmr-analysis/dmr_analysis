@@ -90,7 +90,11 @@ def run(args):
 
   intergenetic_min_len=args.miniLength_of_intergenetic
   in_out_genome_file=args.dmr_genomeFile_string + '*_overlap'+'*.bed'
-  tmp_in_genome_files=glob.glob(os.path.join(in_out_genome_annot_folder,args.dmr_genomeFile_folder,in_out_genome_file))
+  #jbw 2024
+  tmp_in_genome_folders=os.path.join(in_out_genome_annot_folder,args.dmr_genomeFile_folder,in_out_genome_file)
+  tmp_in_genome_files=glob.glob(tmp_in_genome_folders)
+  print(tmp_in_genome_folders)
+  #tmp_in_genome_files=glob.glob(os.path.join(in_out_genome_annot_folder,args.dmr_genomeFile_folder,in_out_genome_file))
 
   #load all genome annotated files but remove intergenitc file
   for fi in tmp_in_genome_files:
